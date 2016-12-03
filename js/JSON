@@ -1,0 +1,25 @@
+var education = {
+	"schools" : 
+	[
+		{
+			"name" : "Middle East Technical University",
+			"city" : "Ankara",
+			"degree" : "BA",
+			"major" : "Industrial Engineering"
+		},
+		{
+			"name" : "Middle East Technical University",
+			"city" : "Ankara",
+			"degree" : "Master of Science",
+			"major" : "Cognitive Science"
+
+		}
+
+	],
+	"onlineCourses" : 
+	[
+		"title" : "Javascript Crash Course",
+		"school" : "UDacity",
+		"dates" : "2017"
+	]
+}

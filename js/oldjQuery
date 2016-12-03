@@ -1,0 +1,67 @@
+/*
+This is empty on purpose! Your code to build the resume will go here.
+ */
+var name = 'Şevki Yöntem';
+var role = 'Web Developer';
+var bio = {
+	'name' : name,
+	'role' : role,
+	'contacts' : {
+		'mobile' : '+90 543 819 65 88',
+		'email' : 'sevkiyontem@gmail.com',
+		'gitHub' : 'sevkibaba',
+		'twitter' : '@cropcoffeeshop',
+		'location' : 'Ankara/TURKEY',
+	},
+	'welcomeMsg' : 'May the force be with you',
+	'skills' : [
+		'programming', ' testing', ' process modelling', ' documentation',   
+	],
+	'bioPic' : 'images/vesika.jpg'	
+}
+
+ var formattedName = HTMLheaderName.replace('%data%', bio.name);
+ var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+ var formattedPhone = HTMLmobile.replace('%data%', bio.contacts.mobile);
+ var formattedImage = HTMLbioPic.replace('%data%', bio.bioPic);
+ var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
+ var formattedGit = HTMLgithub.replace('%data%', bio.contacts.gitHub);
+ var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
+ var formattedSkills = HTMLskills.replace('%data%', bio.skills);
+ var formattedTwitter = HTMLtwitter.replace('%data%', bio.contacts.twitter);
+
+ $('#header').prepend(formattedRole);
+ $('#header').prepend(formattedName);
+ $('#header').append(formattedPhone);
+ $('#header').prepend(formattedImage);
+ $('#header').append(formattedEmail);
+ $('#header').append(formattedGit);
+ $('#header').append(formattedLocation);
+ // $('#main #header').append(formattedskillsStart);
+ $('#header').append(formattedSkills);
+ $('#header').append(formattedTwitter);
+
+var workExp = {};
+workExp.employer = 'JotForm';
+workExp.current = 'Technical Support';
+
+var education = {};
+education['start'] = '04/10/2016';
+education['school'] = 'METU';
+education['years'] = '2002-2015';
+
+var formattedEmployer = HTMLworkEmployer.replace('%data%', workExp['employer']);
+var formattedTitle = HTMLworkTitle.replace('%data%', workExp['current']);
+
+$('#workExperience').prepend(formattedEmployer);
+$('#workExperience').prepend(formattedEmployer);
+
+console.log(workExp['current']);
+console.log(education.school);
+
+// var formattedCurrentEmployer = HTMLworkEmployer.replace('%data%', workExp.employer);
+// var formattedCurrentWork = HTMLworkTitle.replace('%data%', workExp.current);
+
+// $('#workExperience').append(formattedCurrentEmployer);
+// $('#workExperience').append(formattedCurrentWork);
+ 
