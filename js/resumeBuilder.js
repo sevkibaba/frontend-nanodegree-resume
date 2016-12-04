@@ -4,9 +4,16 @@ var work = {
 		{
 			"employer": "JotForm",
 			"title": "Technical Support",
-			"location": "Hacettepe/Ankara"
-			"dates": "05/10/2016 - still working",
-			"description": "Helping JotForm customers at JotForm Suppot Forum",
+			"location": "Ankara",
+			"dates": "2016 - in progress",
+			"description": "Helping JotForm customers at JotForm Suppot Forum"
+		},
+		{
+			"employer": "KSB",
+			"title": "Management Support Engineer",
+			"location": "Ankara",
+			"dates": "11.2006 - 10.2007",
+			"description": "Helping Factory Management in Production Planning, Process Analysis and Bencmark reporting"
 		}
 	]
 };
@@ -24,8 +31,8 @@ var projects = {
 };
 
 var bio = {
-	'name' : name,
-	'role' : role,
+	'name' : "Şevki Yöntem",
+	'role' : "Technical Support",
 	'welcomeMessage' : 'May the force be with you',
 	'biopic' : 'images/vesika.jpg',	
 	'contacts' : {
@@ -36,7 +43,7 @@ var bio = {
 		'location' : 'Ankara/TURKEY',
 	},
 	'skills' : [
-		'programming', ' testing', ' process modelling', ' documentation',   
+		'Programming', 'Software Testing', ' Process Modelling', ' Documentation',   
 	]
 };
 
@@ -73,5 +80,44 @@ education = {
 	]
 };
 
+console.log(work.jobs[0].employer);
 
+var formattedName = HTMLheaderName.replace('%data%', bio.name);
+$('#header').prepend(formattedName);
+
+ if(bio.skills.length > 0) {
+      $('#header').append(HTMLskillsStart);
+
+      for (skill in bio.skills) {
+      		var formattedSkill = HTMLskills.replace('%data%', bio.skills[skill]);
+        	$('#skills').append(formattedSkill);
+      };
+  };
+
+function displayWork ()
+	{
+  	for (job in work.jobs) {
+  	$('#workExperience').append(HTMLworkStart);
+
+  	var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
+  	var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
+  	var formattedEmployerTitle = formattedEmployer + formattedTitle;
+
+  	$('.work-entry:last').append(formattedEmployerTitle);
+
+  	var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
+  	var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
+  	var formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
+
+  	$('.work-entry:last').append(formattedDates);
+  	$('.work-entry:last').append(formattedLocation);
+  	$('.work-entry:last').append(formattedDescription);
+	};
+};
+
+displayWork();
+
+$(document).click(function(loc) {
+  logClicks(loc.pageX, loc.pageY);
+})
 
