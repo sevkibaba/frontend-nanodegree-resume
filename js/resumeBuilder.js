@@ -4,30 +4,36 @@ var work = {
 		{
 			"employer": "JotForm",
 			"title": "Technical Support",
-			"location": "Ankara",
+			"location": "Hacettepe - Ankara",
 			"dates": "2016 - in progress",
 			"description": "Helping JotForm customers at JotForm Suppot Forum"
 		},
 		{
 			"employer": "KSB",
 			"title": "Management Support Engineer",
-			"location": "Ankara",
+			"location": "İstanbul Yolu 18. km- Ankara",
 			"dates": "11.2006 - 10.2007",
-			"description": "Helping Factory Management in Production Planning, Process Analysis and Bencmark reporting"
+			"description": "Helping Factory Management in Production Planning, Process Analysis and Benchmark reporting"
 		}
-	]
+	],
+	'display' : function () {
+		console.log('hello work!');
+	}
 };
 
 var projects = {
 	"projects" : 
 	[
 		{
-			"title": "Maintenance Management System",
+			"title": "Maintenance Management System (EUAS - Havelsan",
 			"dates": "2009 - 2011",
 			"description": "Sofware Requirement Analysis, Process Analysis, Software Testing, Software Education",
-			"images": ["http://gelisimpark.com.tr/en/euas-termik-santraller-isletim-ve-bakim-yonetimi/"]
+			"images": ["images/gp-project.png" ]
 		}
-	]
+	],
+	'display' : function () {
+		console.log('hello!');
+	}
 };
 
 var bio = {
@@ -43,8 +49,11 @@ var bio = {
 		'location' : 'Ankara/TURKEY',
 	},
 	'skills' : [
-		'Programming', 'Software Testing', ' Process Modelling', ' Documentation',   
-	]
+		'Programming,     Software Testing,     Process Modelling,     Documentation'   
+	],
+	'display' : function () {
+		console.log('hello!');
+	}
 };
 
 education = {
@@ -77,20 +86,39 @@ education = {
 		"dates" : "2017",
 		"url" : "https://classroom.udacity.com/courses/ud804/"
 		}
-	]
+	],
+	"display" : function () {
+		console.log('hello I studied a lot');
+	}
 };
 
-console.log(work.jobs[0].employer);
-
 var formattedName = HTMLheaderName.replace('%data%', bio.name);
+var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+var formattedPhone = HTMLmobile.replace('%data%', bio.contacts.mobile);
+var formattedImage = HTMLbioPic.replace('%data%', bio.biopic);
+var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
+var formattedGit = HTMLgithub.replace('%data%', bio.contacts.gitHub);
+var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
+var formattedSkills = HTMLskills.replace('%data%', bio.skills);
+var formattedTwitter = HTMLtwitter.replace('%data%', bio.contacts.twitter);
+
+$('#header').prepend(formattedRole);
 $('#header').prepend(formattedName);
+$('#header').prepend(formattedImage);
+
+$('#topContacts').prepend(formattedTwitter);
+$('#topContacts').prepend(formattedGit);
+$('#topContacts').prepend(formattedEmail);
+$('#topContacts').prepend(formattedPhone);
+// $('#header').append(formattedLocation);
+
 
  if(bio.skills.length > 0) {
       $('#header').append(HTMLskillsStart);
 
       for (skill in bio.skills) {
       		var formattedSkill = HTMLskills.replace('%data%', bio.skills[skill]);
-        	$('#skills').append(formattedSkill);
+        	$('#skills-h3').append(formattedSkill);
       };
   };
 
@@ -117,7 +145,26 @@ function displayWork ()
 
 displayWork();
 
-$(document).click(function(loc) {
+$(document).click(function(loc) {			// logs click locations.
   logClicks(loc.pageX, loc.pageY);
 })
 
+projects.display = function () {
+	  	for (key in projects.projects) {
+	  	$('#projects').append(HTMLprojectStart);
+
+	  	var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[key].title);
+	  	var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[key].dates);
+	  	var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[key].description);
+	  	var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[key].images);
+
+	  	$(".project-entry:last").append(formattedTitle);
+	  	$(".project-entry:last").append(formattedDates);
+	  	$(".project-entry:last").append(formattedDescription);
+	  	$(".project-entry:last").append(formattedImage);
+	  };
+};
+
+projects.display ();
+
+$("#mapDiv").append(googleMap);

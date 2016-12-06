@@ -64,4 +64,37 @@ console.log(education.school);
 
 // $('#workExperience').append(formattedCurrentEmployer);
 // $('#workExperience').append(formattedCurrentWork);
+
+
+
+
+if(bio.skills.length > 0) {
+      $('#header').append(HTMLskillsStart);
+
+      for (skill in bio.skills) {
+
+      	var formattedSkill = HTMLskills.replace('%data%', bio.skills[skill]);
+        $('#skills').append(formattedSkill);
+      };
+      // var formattedSkill = HTMLskills.replace('%data%', bio.skills[0]);
+      // $('#skills').append(formattedSkill);
+      // var formattedSkill = HTMLskills.replace('%data%', bio.skills[1]);
+      // $('#skills').append(formattedSkill);
+      // var formattedSkill = HTMLskills.replace('%data%', bio.skills[2]);
+      // $('#skills').append(formattedSkill);
+      // var formattedSkill = HTMLskills.replace('%data%', bio.skills[3]);
+      // $('#skills').append(formattedSkill);
+
+  };
  
+function inName (name){
+	var newName = name.trim().split(" ");
+	newName[0] = newName[0].slice(0,1).toUpperCase() +
+	newName[0].slice(1).toLowerCase();
+	newName[1] = newName[1].toUpperCase();
+
+	return newName[0] + " " + newName[1];
+}
+
+$("#main").append(internationalizeButton);
+

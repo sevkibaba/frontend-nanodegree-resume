@@ -1,4 +1,4 @@
-var education = {
+education = {
 	"schools" : 
 	[
 		{
@@ -16,10 +16,12 @@ var education = {
 		}
 
 	],
-	"onlineCourses" : 
+	"onlinecourses" : 
 	[
+		{
 		"title" : "Javascript Crash Course",
 		"school" : "UDacity",
 		"dates" : "2017"
+		}
 	]
 }
